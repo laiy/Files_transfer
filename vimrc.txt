@@ -1,0 +1,528 @@
+set sw=4
+set ts=4
+set et
+set smarttab
+set smartindent
+set lbr
+set fo+=mB
+set sm
+set selection=inclusive
+set wildmenu
+set mousemodel=popup
+set lines=999
+set columns=999
+set guifont=Bitstream\ Vera\ Sans\ Mono\ 12
+set nowrap
+
+au BufNewFile,BufRead *.less set filetype=less
+au FileType php setlocal dict+=~/.vim/dict/php_funclist.dict
+au FileType css setlocal dict+=~/.vim/dict/css.dict
+au FileType c setlocal dict+=~/.vim/dict/c.dict
+au FileType cpp setlocal dict+=~/.vim/dict/cpp.dict
+au FileType scale setlocal dict+=~/.vim/dict/scale.dict
+au FileType javascript setlocal dict+=~/.vim/dict/javascript.dict
+au FileType html setlocal dict+=~/.vim/dict/javascript.dict
+au FileType html setlocal dict+=~/.vim/dict/css.dict
+
+"
+"syntastic\u76f8\u5173
+execute pathogen#infect()
+let g:syntastic_python_checkers=['pylint']
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+"golang
+"Processing... % (ctrl+c to stop)
+let g:fencview_autodetect=0
+set rtp+=$GOROOT/misc/vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" \u663e\u793a\u76f8\u5173  
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on
+set cul "\u9ad8\u4eae\u5149\u6807\u6240\u5728\u884c
+set cuc
+set shortmess=atI   " \u542f\u52a8\u7684\u65f6\u5019\u4e0d\u663e\u793a\u90a3\u4e2a\u63f4\u52a9\u4e4c\u5e72\u8fbe\u513f\u7ae5\u7684\u63d0\u793a  
+set go=             " \u4e0d\u8981\u56fe\u5f62\u6309\u94ae  
+"color desert     " \u8bbe\u7f6e\u80cc\u666f\u4e3b\u9898  
+set background=dark
+color solarized" \u8bbe\u7f6e\u80cc\u666f\u4e3b\u9898  
+"color torte     " \u8bbe\u7f6e\u80cc\u666f\u4e3b\u9898  
+"set guifont=Courier_New:h10:cANSI   " \u8bbe\u7f6e\u5b57\u4f53  
+"autocmd InsertLeave * se nocul  " \u7528\u6d45\u8272\u9ad8\u4eae\u5f53\u524d\u884c  
+autocmd InsertEnter * se cul    " \u7528\u6d45\u8272\u9ad8\u4eae\u5f53\u524d\u884c  
+set ruler           " \u663e\u793a\u6807\u5c3a  
+set showcmd         " \u8f93\u5165\u7684\u547d\u4ee4\u663e\u793a\u51fa\u6765\uff0c\u770b\u7684\u6e05\u695a\u4e9b  
+"set whichwrap+=<,>,h,l   " \u5141\u8bb8backspace\u548c\u5149\u6807\u952e\u8de8\u8d8a\u884c\u8fb9\u754c(\u4e0d\u5efa\u8bae)  
+set scrolloff=3     " \u5149\u6807\u79fb\u52a8\u5230buffer\u7684\u9876\u90e8\u548c\u5e95\u90e8\u65f6\u4fdd\u63013\u884c\u8ddd\u79bb  
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}   "\u72b6\u6001\u884c\u663e\u793a\u7684\u5185\u5bb9  
+set laststatus=2    " \u542f\u52a8\u663e\u793a\u72b6\u6001\u884c(1),\u603b\u662f\u663e\u793a\u72b6\u6001\u884c(2)  
+"set foldenable      " \u5141\u8bb8\u6298\u53e0  
+""set foldmethod=manual   " \u624b\u52a8\u6298\u53e0  
+set nocompatible  "\u53bb\u6389\u8ba8\u538c\u7684\u6709\u5173vi\u4e00\u81f4\u6027\u6a21\u5f0f\uff0c\u907f\u514d\u4ee5\u524d\u7248\u672c\u7684\u4e00\u4e9bbug\u548c\u5c40\u9650  
+" \u663e\u793a\u4e2d\u6587\u5e2e\u52a9
+if version >= 603
+	set helplang=cn
+	set encoding=utf-8
+endif
+" \u81ea\u52a8\u7f29\u8fdb
+set autoindent
+set cindent
+" Tab\u952e\u7684\u5bbd\u5ea6
+set tabstop=4
+" \u7edf\u4e00\u7f29\u8fdb\u4e3a4
+set softtabstop=4
+set shiftwidth=4
+" \u4e0d\u8981\u7528\u7a7a\u683c\u4ee3\u66ff\u5236\u8868\u7b26
+set expandtab
+" \u5728\u884c\u548c\u6bb5\u5f00\u59cb\u5904\u4f7f\u7528\u5236\u8868\u7b26
+set smarttab
+" \u663e\u793a\u884c\u53f7
+set number
+" \u5386\u53f2\u8bb0\u5f55\u6570
+set history=1000
+"\u641c\u7d22\u9010\u5b57\u7b26\u9ad8\u4eae
+set hlsearch
+set incsearch
+"\u8bed\u8a00\u8bbe\u7f6e
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+" \u603b\u662f\u663e\u793a\u72b6\u6001\u884c
+set cmdheight=2
+" \u4fa6\u6d4b\u6587\u4ef6\u7c7b\u578b
+filetype on
+" \u8f7d\u5165\u6587\u4ef6\u7c7b\u578b\u63d2\u4ef6
+filetype plugin on
+" \u4e3a\u7279\u5b9a\u6587\u4ef6\u7c7b\u578b\u8f7d\u5165\u76f8\u5173\u7f29\u8fdb\u6587\u4ef6
+filetype indent on
+" \u4fdd\u5b58\u5168\u5c40\u53d8\u91cf
+set viminfo+=!
+" \u5e26\u6709\u5982\u4e0b\u7b26\u53f7\u7684\u5355\u8bcd\u4e0d\u8981\u88ab\u6362\u884c\u5206\u5272
+set iskeyword+=_,$,@,%,#,-
+" \u5b57\u7b26\u95f4\u63d2\u5165\u7684\u50cf\u7d20\u884c\u6570\u76ee
+
+"markdown\u914d\u7f6e
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+au BufRead,BufNewFile *.{go}   set filetype=go
+au BufRead,BufNewFile *.{js}   set filetype=javascript
+"rkdown to HTML  
+nmap md :!~/.vim/markdown.pl % > %.html <CR><CR>
+nmap fi :!firefox %.html & <CR><CR>
+nmap \ \cc
+vmap \ \cc
+
+"\u5c06tab\u66ff\u6362\u4e3a\u7a7a\u683c
+nmap tt :%s/\t/    /g<CR>
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""\u65b0\u6587\u4ef6\u6807\u9898
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"\u65b0\u5efa.c,.h,.sh,.java\u6587\u4ef6\uff0c\u81ea\u52a8\u63d2\u5165\u6587\u4ef6\u5934 
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.py exec ":call SetTitle()" 
+""\u5b9a\u4e49\u51fd\u6570SetTitle\uff0c\u81ea\u52a8\u63d2\u5165\u6587\u4ef6\u5934 
+func SetTitle() 
+	"\u5982\u679c\u6587\u4ef6\u7c7b\u578b\u4e3a.sh\u6587\u4ef6 
+	if &filetype == 'sh' 
+		call setline(1,"\#!/bin/bash") 
+		call append(line("."), "") 
+    elseif &filetype == 'python'
+        call setline(1,"#!/usr/bin/env python")
+        call append(line("."),"# coding=utf-8")
+		call append(line(".")+1, "") 
+"    elseif &filetype == 'mkd'
+"        call setline(1,"<head><meta charset=\"UTF-8\"></head>")
+	else 
+		call setline(1, "/*************************************************************************") 
+		call append(line("."), "	> File Name: ".expand("%")) 
+		call append(line(".")+1, "	> Author: LY") 
+		call append(line(".")+2, "	> Mail: ly.franky@gmail.com") 
+		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
+		call append(line(".")+4, " ************************************************************************/") 
+		call append(line(".")+5, "")
+	endif
+	if &filetype == 'cpp'
+		call append(line(".")+6, "#include<iostream>")
+		call append(line(".")+7, "using namespace std;")
+		call append(line(".")+8, "")
+	endif
+	if &filetype == 'c'
+		call append(line(".")+6, "#include<stdio.h>")
+		call append(line(".")+7, "")
+	endif
+"	if &filetype == 'java'
+"		call append(line(".")+6,"public class ".expand("%"))
+"		call append(line(".")+7,"")
+"	endif
+	"\u65b0\u5efa\u6587\u4ef6\u540e\uff0c\u81ea\u52a8\u5b9a\u4f4d\u5230\u6587\u4ef6\u672b\u5c3e
+endfunc 
+autocmd BufNewFile * normal G
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"\u952e\u76d8\u547d\u4ee4
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+:nmap <silent> <F9> <ESC>:Tlist<RETURN>
+map! <C-Z> <Esc>zzi
+map! <C-O> <C-Y>,
+map <C-A> ggVG$"+y
+map <F12> gg=G
+map <C-w> <C-w>w
+imap <C-k> <C-y>,
+imap <C-j> <ESC>
+" \u9009\u4e2d\u72b6\u6001\u4e0b Ctrl+c \u590d\u5236
+"map <C-v> "*pa
+imap <C-v> <Esc>"*pa
+imap <C-a> <Esc>^
+imap <C-e> <Esc>$
+vmap <C-c> "+y
+set mouse=v
+"set clipboard=unnamed
+"\u53bb\u7a7a\u884c  
+nnoremap <F2> :g/^\s*$/d<CR> 
+"\u6bd4\u8f83\u6587\u4ef6  
+nnoremap <C-F2> :vert diffsplit 
+"nnoremap <Leader>fu :CtrlPFunky<Cr>
+"nnoremap <C-n> :CtrlPFunky<Cr>
+"\u5217\u51fa\u5f53\u524d\u76ee\u5f55\u6587\u4ef6  
+map <F3> :NERDTree<CR>  
+"\u6253\u5f00\u6811\u72b6\u6587\u4ef6\u76ee\u5f55  
+map <C-F3> \be  
+:autocmd BufRead,BufNewFile *.dot map <F5> :w<CR>:!dot -Tjpg -o %<.jpg % && eog %<.jpg  <CR><CR> && exec "redr!"
+"C\uff0cC++ \u6309F5\u7f16\u8bd1\u8fd0\u884c
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'java' 
+		exec "!javac %" 
+		exec "!time java %<"
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+"        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+	endif
+endfunc
+"C,C++\u7684\u8c03\u8bd5
+map <F8> :call Rungdb()<CR>
+func! Rungdb()
+	exec "w"
+	exec "!g++ % -g -o %<"
+	exec "!gdb ./%<"
+endfunc
+
+
+"\u4ee3\u7801\u683c\u5f0f\u4f18\u5316\u5316
+
+map <F6> :call FormartSrc()<CR><CR>
+
+"\u5b9a\u4e49FormartSrc()
+func FormartSrc()
+    exec "w"
+    if &filetype == 'c'
+        exec "!astyle --style=ansi -a --suffix=none %"
+    elseif &filetype == 'cpp' || &filetype == 'hpp'
+        exec "r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %> /dev/null 2>&1"
+    elseif &filetype == 'perl'
+        exec "!astyle --style=gnu --suffix=none %"
+    elseif &filetype == 'py'||&filetype == 'python'
+        exec "r !autopep8 -i --aggressive %"
+    elseif &filetype == 'java'
+        exec "!astyle --style=java --suffix=none %"
+    elseif &filetype == 'jsp'
+        exec "!astyle --style=gnu --suffix=none %"
+    elseif &filetype == 'xml'
+        exec "!astyle --style=gnu --suffix=none %"
+    else
+        exec "normal gg=G"
+        return
+    endif
+    exec "e! %"
+endfunc
+"\u7ed3\u675f\u5b9a\u4e49FormartSrc
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""\u5b9e\u7528\u8bbe\u7f6e
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("autocmd")
+      autocmd BufReadPost *
+          \ if line("'\"") > 0 && line("'\"") <= line("$") |
+          \   exe "normal g`\"" |
+          \ endif
+endif
+"\u5f53\u6253\u5f00vim\u4e14\u6ca1\u6709\u6587\u4ef6\u65f6\u81ea\u52a8\u6253\u5f00NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+" \u53ea\u5269 NERDTree\u65f6\u81ea\u52a8\u5173\u95ed
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" \u8bbe\u7f6e\u5f53\u6587\u4ef6\u88ab\u6539\u52a8\u65f6\u81ea\u52a8\u8f7d\u5165
+set autoread
+" quickfix\u6a21\u5f0f
+autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
+"\u4ee3\u7801\u8865\u5168 
+set completeopt=preview,menu 
+"\u5141\u8bb8\u63d2\u4ef6  
+"filetype plugin on
+"\u5171\u4eab\u526a\u8d34\u677f  
+"set clipboard+=unnamed 
+"\u81ea\u52a8\u4fdd\u5b58
+set autowrite
+"set ruler                   " \u6253\u5f00\u72b6\u6001\u680f\u6807\u5c3a
+"set cursorline              " \u7a81\u51fa\u663e\u793a\u5f53\u524d\u884c
+set magic                   " \u8bbe\u7f6e\u9b54\u672f
+set guioptions-=T           " \u9690\u85cf\u5de5\u5177\u680f
+set guioptions-=m           " \u9690\u85cf\u83dc\u5355\u680f
+""set foldcolumn=0
+""set foldmethod=indent 
+""set foldlevel=3 
+" \u4e0d\u8981\u4f7f\u7528vi\u7684\u952e\u76d8\u6a21\u5f0f\uff0c\u800c\u662fvim\u81ea\u5df1\u7684
+set nocompatible
+" \u53bb\u6389\u8f93\u5165\u9519\u8bef\u7684\u63d0\u793a\u58f0\u97f3
+set noeb
+" \u5728\u5904\u7406\u672a\u4fdd\u5b58\u6216\u53ea\u8bfb\u6587\u4ef6\u7684\u65f6\u5019\uff0c\u5f39\u51fa\u786e\u8ba4
+set confirm
+"\u7981\u6b62\u751f\u6210\u4e34\u65f6\u6587\u4ef6
+set nobackup
+set noswapfile
+"\u641c\u7d22\u5ffd\u7565\u5927\u5c0f\u5199
+set ignorecase
+
+
+
+
+set linespace=0
+" \u589e\u5f3a\u6a21\u5f0f\u4e2d\u7684\u547d\u4ee4\u884c\u81ea\u52a8\u5b8c\u6210\u64cd\u4f5c
+set wildmenu
+" \u4f7f\u56de\u683c\u952e\uff08backspace\uff09\u6b63\u5e38\u5904\u7406indent, eol, start\u7b49
+set backspace=2
+" \u5141\u8bb8backspace\u548c\u5149\u6807\u952e\u8de8\u8d8a\u884c\u8fb9\u754c
+set whichwrap+=<,>,h,l
+" \u53ef\u4ee5\u5728buffer\u7684\u4efb\u4f55\u5730\u65b9\u4f7f\u7528\u9f20\u6807\uff08\u7c7b\u4f3coffice\u4e2d\u5728\u5de5\u4f5c\u533a\u53cc\u51fb\u9f20\u6807\u5b9a\u4f4d\uff09
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+" \u901a\u8fc7\u4f7f\u7528: commands\u547d\u4ee4\uff0c\u544a\u8bc9\u6211\u4eec\u6587\u4ef6\u7684\u54ea\u4e00\u884c\u88ab\u6539\u53d8\u8fc7
+set report=0
+" \u5728\u88ab\u5206\u5272\u7684\u7a97\u53e3\u95f4\u663e\u793a\u7a7a\u767d\uff0c\u4fbf\u4e8e\u9605\u8bfb
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+" \u9ad8\u4eae\u663e\u793a\u5339\u914d\u7684\u62ec\u53f7
+set showmatch
+" \u5339\u914d\u62ec\u53f7\u9ad8\u4eae\u7684\u65f6\u95f4\uff08\u5355\u4f4d\u662f\u5341\u5206\u4e4b\u4e00\u79d2\uff09
+set matchtime=1
+" \u5149\u6807\u79fb\u52a8\u5230buffer\u7684\u9876\u90e8\u548c\u5e95\u90e8\u65f6\u4fdd\u63013\u884c\u8ddd\u79bb
+set scrolloff=3
+" \u4e3aC\u7a0b\u5e8f\u63d0\u4f9b\u81ea\u52a8\u7f29\u8fdb
+"\u81ea\u52a8\u8865\u5168
+"":inoremap ( ()<ESC>i
+"":inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap { {<CR>}<ESC>O
+":inoremap } <c-r>=ClosePair('}')<CR>
+"":inoremap [ []<ESC>i
+"":inoremap ] <c-r>=ClosePair(']')<CR>
+"":inoremap " ""<ESC>i
+"":inoremap ' ''<ESC>i
+""function! ClosePair(char)
+""	if getline('.')[col('.') - 1] == a:char
+""		return "\<Right>"
+""	else
+""		return a:char
+""	endif
+""endfunction
+filetype plugin indent on 
+"\u6253\u5f00\u6587\u4ef6\u7c7b\u578b\u68c0\u6d4b, \u52a0\u4e86\u8fd9\u53e5\u624d\u53ef\u4ee5\u7528\u667a\u80fd\u8865\u5168
+set completeopt=longest,menu
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CTags\u7684\u8bbe\u5b9a  
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let Tlist_Sort_Type = "name"    " \u6309\u7167\u540d\u79f0\u6392\u5e8f  
+let Tlist_Use_Right_Window = 1  " \u5728\u53f3\u4fa7\u663e\u793a\u7a97\u53e3  
+let Tlist_Compart_Format = 1    " \u538b\u7f29\u65b9\u5f0f  
+let Tlist_Exist_OnlyWindow = 1  " \u5982\u679c\u53ea\u6709\u4e00\u4e2abuffer\uff0ckill\u7a97\u53e3\u4e5fkill\u6389buffer  
+""let Tlist_File_Fold_Auto_Close = 0  " \u4e0d\u8981\u5173\u95ed\u5176\u4ed6\u6587\u4ef6\u7684tags  
+""let Tlist_Enable_Fold_Column = 0    " \u4e0d\u8981\u663e\u793a\u6298\u53e0\u6811  
+"let Tlist_Show_One_File=1            "\u4e0d\u540c\u65f6\u663e\u793a\u591a\u4e2a\u6587\u4ef6\u7684tag\uff0c\u53ea\u663e\u793a\u5f53\u524d\u6587\u4ef6\u7684
+"\u8bbe\u7f6etags  
+"set tags=tags  
+"set autochdir 
+
+
+
+
+
+
+
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"\u5176\u4ed6\u4e1c\u4e1c
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"\u9ed8\u8ba4\u6253\u5f00Taglist 
+let Tlist_Auto_Open=0 
+"""""""""""""""""""""""""""""" 
+" Tag list (ctags) 
+"""""""""""""""""""""""""""""""" 
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags' 
+let Tlist_Show_One_File = 1 "\u4e0d\u540c\u65f6\u663e\u793a\u591a\u4e2a\u6587\u4ef6\u7684tag\uff0c\u53ea\u663e\u793a\u5f53\u524d\u6587\u4ef6\u7684 
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_Exit_OnlyWindow = 1 "\u5982\u679ctaglist\u7a97\u53e3\u662f\u6700\u540e\u4e00\u4e2a\u7a97\u53e3\uff0c\u5219\u9000\u51favim 
+let Tlist_Use_Right_Window = 1 "\u5728\u53f3\u4fa7\u7a97\u53e3\u4e2d\u663e\u793ataglist\u7a97\u53e3
+" minibufexpl\u63d2\u4ef6\u7684\u4e00\u822c\u8bbe\u7f6e
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1  
+nmap tl :Tlist<cr>
+
+
+
+"\u8f93\u5165\u6cd5
+:let g:vimim_map='c-/'
+":let g:vimim_cloud='sougou' " QQ\u4e91\u8f93\u5165
+:let g:vimim_punctuation=0	" \u4e0d\u7528\u4e2d\u6587\u6807\u70b9
+:set pastetoggle=<C-H>
+:let g:vimim_cloud=-1
+
+
+"python\u8865\u5168
+let g:pydiction_location = '~/.vim/after/complete-dict'
+let g:pydiction_menu_height = 20
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+
+set iskeyword+=.
+set termencoding=utf-8
+set encoding=utf8
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+"set nocompatible               " be iMproved
+"filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'Yggdroot/indentLine'
+let g:indentLine_char = '\u250a'
+"ndle 'tpope/vim-rails.git'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'Auto-Pairs'
+Bundle 'python-imports.vim'
+Bundle 'CaptureClipboard'
+Bundle 'ctrlp-modified.vim'
+Bundle 'last_edit_marker.vim'
+Bundle 'synmark.vim'
+"Bundle 'Python-mode-klen'
+Bundle 'SQLComplete.vim'
+Bundle 'Javascript-OmniCompletion-with-YUI-and-j'
+"Bundle 'JavaScript-Indent'
+"Bundle 'Better-Javascript-Indentation'
+Bundle 'jslint.vim'
+Bundle "pangloss/vim-javascript"
+Bundle 'Vim-Script-Updater'
+Bundle 'ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
+Bundle 'jsbeautify'
+Bundle 'The-NERD-Commenter'
+"django
+Bundle 'django_templates.vim'
+Bundle 'Django-Projects'
+Bundle 'Valloric/YouCompleteMe'
+
+"Bundle 'FredKSchott/CoVim'
+"Bundle 'djangojump'
+" ...
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+"
+"
+"ctrlp\u8bbe\u7f6e
+"
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.png,*.jpg,*.gif     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*.pyc,*.png,*.jpg,*.gif  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v\.(exe|so|dll)$'
+let g:ctrlp_extensions = ['funky']
+
+let NERDTreeIgnore=['\.pyc']
+
+" \u81ea\u52a8\u8865\u5168\u914d\u7f6e
+set completeopt=longest,menu	"\u8ba9Vim\u7684\u8865\u5168\u83dc\u5355\u884c\u4e3a\u4e0e\u4e00\u822cIDE\u4e00\u81f4(\u53c2\u8003VimTip1228)
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif	"\u79bb\u5f00\u63d2\u5165\u6a21\u5f0f\u540e\u81ea\u52a8\u5173\u95ed\u9884\u89c8\u7a97\u53e3
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"	"\u56de\u8f66\u5373\u9009\u4e2d\u5f53\u524d\u9879
+"\u4e0a\u4e0b\u5de6\u53f3\u952e\u7684\u884c\u4e3a \u4f1a\u663e\u793a\u5176\u4ed6\u4fe1\u606f
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+"youcompleteme  \u9ed8\u8ba4tab  s-tab \u548c\u81ea\u52a8\u8865\u5168\u51b2\u7a81
+"let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_confirm_extra_conf=0 "\u5173\u95ed\u52a0\u8f7d.ycm_extra_conf.py\u63d0\u793a
+
+let g:ycm_collect_identifiers_from_tags_files=1	" \u5f00\u542f YCM \u57fa\u4e8e\u6807\u7b7e\u5f15\u64ce
+let g:ycm_min_num_of_chars_for_completion=2	" \u4ece\u7b2c2\u4e2a\u952e\u5165\u5b57\u7b26\u5c31\u5f00\u59cb\u7f57\u5217\u5339\u914d\u9879
+let g:ycm_cache_omnifunc=0	" \u7981\u6b62\u7f13\u5b58\u5339\u914d\u9879,\u6bcf\u6b21\u90fd\u91cd\u65b0\u751f\u6210\u5339\u914d\u9879
+let g:ycm_seed_identifiers_with_syntax=1	" \u8bed\u6cd5\u5173\u952e\u5b57\u8865\u5168
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>	"force recomile with syntastic
+"nnoremap <leader>lo :lopen<CR>	"open locationlist
+"nnoremap <leader>lc :lclose<CR>	"close locationlist
+inoremap <leader><leader> <C-x><C-o>
+"\u5728\u6ce8\u91ca\u8f93\u5165\u4e2d\u4e5f\u80fd\u8865\u5168
+let g:ycm_complete_in_comments = 1
+"\u5728\u5b57\u7b26\u4e32\u8f93\u5165\u4e2d\u4e5f\u80fd\u8865\u5168
+let g:ycm_complete_in_strings = 1
+"\u6ce8\u91ca\u548c\u5b57\u7b26\u4e32\u4e2d\u7684\u6587\u5b57\u4e5f\u4f1a\u88ab\u6536\u5165\u8865\u5168
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> " \u8df3\u8f6c\u5230\u5b9a\u4e49\u5904
