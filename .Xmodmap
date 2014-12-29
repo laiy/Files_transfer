@@ -1,0 +1,9 @@
+!
+! Swap Alt_R and Super_L
+!
+remove mod4 = Super_L
+remove mod1 = Alt_R
+keysym Super_L = Alt_R
+keysym Alt_R = Super_L
+add mod4 = Super_L
+add mod1 = Alt_R
