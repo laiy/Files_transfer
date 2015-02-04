@@ -153,8 +153,8 @@ func SetTitle()
     if &filetype == 'cpp'
         call append(line(".")+6, "#include <cstdio>")
         call append(line(".")+7, "")
-        call append(line(".")+8, "int main() {")
-        call append(line(".")+9, "    return 0;")
+        call append(line(".")+8, "int main(int argc, char *argv[]) {")
+        call append(line(".")+9, "    exit(0);")
         call append(line(".")+10, "}")
     endif
     if &filetype == 'c'
